@@ -1,0 +1,28 @@
+
+student> db.data.insertOne({'name':'Aryan', age:29})
+{
+  acknowledged: true,
+  insertedId: ObjectId("6518f2bfa05347e7b680bdf0")
+}
+student> db.data.insertMany([ {'name':'vini', age:17} , {'name': 'Arya', age:20}, {'name': 'rahul', age:24}, {'name':'amki', age:21}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("6518f638a05347e7b680bdf1"),
+    '1': ObjectId("6518f638a05347e7b680bdf2"),
+    '2': ObjectId("6518f638a05347e7b680bdf3"),
+    '3': ObjectId("6518f638a05347e7b680bdf4")
+  }
+}
+student> db.data.find()
+[
+  { _id: ObjectId("6518f2bfa05347e7b680bdf0"), name: 'Aryan', age: 29 },
+  { _id: ObjectId("6518f638a05347e7b680bdf1"), name: 'vini', age: 17 },
+  { _id: ObjectId("6518f638a05347e7b680bdf2"), name: 'Arya', age: 20 },
+  { _id: ObjectId("6518f638a05347e7b680bdf3"), name: 'rahul', age: 24 },
+  { _id: ObjectId("6518f638a05347e7b680bdf4"), name: 'amki', age: 21 }
+]
+student>
+
+
+
