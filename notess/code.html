@@ -185,16 +185,37 @@ shop> db.products.find()
   shop>
   
 
+  <!--******************** count price *******************************-->
+
+
+
+  Type "it" for more
+  shop> db.products.find({'price':{$ne:699}}).count()
+  10342
+  shop> db.products.find({'price':{$lt:699}}).count()
+  7289
+  shop> db.products.find({'price':{$gte:699}}).count()
+  3066
 
 
 
 
+<!--********************** limit1***************************** -->
 
-
-
-
-
-
+shop> db.products.find({'price': {$in: [699,129,69]}}).limit(1)
+[
+  {
+    _id: ObjectId("64c23601e32f4a51b19b9262"),
+    name: 'Smartphone Model X',
+    company: '64c23350e32f4a51b19b9230',
+    price: 699,
+    colors: [ '#000000', '#ffffff', '#ff0000' ],
+    image: '/images/product-smartphone.png',
+    category: '64c2342de32f4a51b19b924e',
+    isFeatured: false
+  }
+]
+shop>
 
 
 
