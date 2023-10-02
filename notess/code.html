@@ -1,34 +1,34 @@
-
 student> db.data.insertOne({'name':'Aryan', age:29})
 {
-  acknowledged: true,
-  insertedId: ObjectId("6518f2bfa05347e7b680bdf0")
+acknowledged: true,
+insertedId: ObjectId("6518f2bfa05347e7b680bdf0")
 }
-student> db.data.insertMany([ {'name':'vini', age:17} , {'name': 'Arya', age:20}, {'name': 'rahul', age:24}, {'name':'amki', age:21}])
+student> db.data.insertMany([ {'name':'vini', age:17} , {'name': 'Arya', age:20}, {'name': 'rahul', age:24},
+{'name':'amki', age:21}])
 {
-  acknowledged: true,
-  insertedIds: {
-    '0': ObjectId("6518f638a05347e7b680bdf1"),
-    '1': ObjectId("6518f638a05347e7b680bdf2"),
-    '2': ObjectId("6518f638a05347e7b680bdf3"),
-    '3': ObjectId("6518f638a05347e7b680bdf4")
-  }
+acknowledged: true,
+insertedIds: {
+'0': ObjectId("6518f638a05347e7b680bdf1"),
+'1': ObjectId("6518f638a05347e7b680bdf2"),
+'2': ObjectId("6518f638a05347e7b680bdf3"),
+'3': ObjectId("6518f638a05347e7b680bdf4")
+}
 }
 student> db.data.find()
 [
-  { _id: ObjectId("6518f2bfa05347e7b680bdf0"), name: 'Aryan', age: 29 },
-  { _id: ObjectId("6518f638a05347e7b680bdf1"), name: 'vini', age: 17 },
-  { _id: ObjectId("6518f638a05347e7b680bdf2"), name: 'Arya', age: 20 },
-  { _id: ObjectId("6518f638a05347e7b680bdf3"), name: 'rahul', age: 24 },
-  { _id: ObjectId("6518f638a05347e7b680bdf4"), name: 'amki', age: 21 }
+{ _id: ObjectId("6518f2bfa05347e7b680bdf0"), name: 'Aryan', age: 29 },
+{ _id: ObjectId("6518f638a05347e7b680bdf1"), name: 'vini', age: 17 },
+{ _id: ObjectId("6518f638a05347e7b680bdf2"), name: 'Arya', age: 20 },
+{ _id: ObjectId("6518f638a05347e7b680bdf3"), name: 'rahul', age: 24 },
+{ _id: ObjectId("6518f638a05347e7b680bdf4"), name: 'amki', age: 21 }
 ]
- 
+
 
 <!--****************************** mongo import *******************************************-->
 
 C:\Users\ARYAN YADAV>mongoimport E:\mongo_json\products.json -d shop -c products
-2023-10-02T09:15:01.627+0530    connected to: mongodb://localhost/
-2023-10-02T09:15:01.928+0530    10355 document(s) imported successfully. 0 document(s) failed to import.
+2023-10-02T09:15:01.627+0530 connected to: mongodb://localhost/
+2023-10-02T09:15:01.928+0530 10355 document(s) imported successfully. 0 document(s) failed to import.
 
 
 
@@ -37,16 +37,16 @@ C:\Users\ARYAN YADAV>mongoimport E:\mongo_json\products.json -d shop -c products
 
 
 C:\Users\ARYAN YADAV>mongoimport E:\mongo_json\sales.json -d shop -c sales --jsonArray
-2023-10-02T09:19:00.088+0530    connected to: mongodb://localhost/
-2023-10-02T09:19:00.117+0530    5 document(s) imported successfully. 0 document(s) failed to i
+2023-10-02T09:19:00.088+0530 connected to: mongodb://localhost/
+2023-10-02T09:19:00.117+0530 5 document(s) imported successfully. 0 document(s) failed to i
 
 
 <!-- ********************************category************************************************ -->
 
 
 C:\Users\ARYAN YADAV>mongoimport E:\mongo_json\categories.json -d shop -c categories
-2023-10-02T09:22:14.350+0530    connected to: mongodb://localhost/
-2023-10-02T09:22:14.374+0530    20 document(s) imported successfully. 0 document(s) failed to import.
+2023-10-02T09:22:14.350+0530 connected to: mongodb://localhost/
+2023-10-02T09:22:14.374+0530 20 document(s) imported successfully. 0 document(s) failed to import.
 
 
 
@@ -55,5 +55,156 @@ C:\Users\ARYAN YADAV>mongoimport E:\mongo_json\categories.json -d shop -c catego
 
 
 C:\Users\ARYAN YADAV>mongoexport -d shop -c sales -o E:\mongo_json\salestest.json
-2023-10-02T09:28:52.222+0530    connected to: mongodb://localhost/
-2023-10-02T09:28:52.239+0530    exported 5 records
+2023-10-02T09:28:52.222+0530 connected to: mongodb://localhost/
+2023-10-02T09:28:52.239+0530 exported 5 records
+
+
+
+
+
+<!-- ******************check import**************************** -->
+
+test> show dbs
+Weather_data 2.50 MiB
+admin 40.00 KiB
+aryans 80.00 KiB
+config 48.00 KiB
+idea_app_demo 128.00 KiB
+local 80.00 KiB
+new_weather_db 5.13 MiB
+shop 716.00 KiB
+student 72.00 KiB
+students 8.00 KiB
+test 8.00 KiB
+test> use shop
+switched to db shop
+shop> show collections
+categories
+products
+sales
+shop>
+test> show dbs
+Weather_data      2.50 MiB
+admin            40.00 KiB
+aryans           80.00 KiB
+config           48.00 KiB
+idea_app_demo   128.00 KiB
+local            80.00 KiB
+new_weather_db    5.13 MiB
+shop            716.00 KiB
+student          72.00 KiB
+students          8.00 KiB
+test              8.00 KiB
+test> use shop
+switched to db shop
+shop> show collections
+categories
+products
+sales
+shop> db.products.find()
+[
+  {
+    _id: ObjectId("64c23601e32f4a51b19b9269"),
+    name: 'Building Blocks Set',
+    company: '64c23350e32f4a51b19b9237',
+    price: 49,
+    colors: [ '#ff0000', '#00ff00', '#0000ff' ],
+    image: '/images/product-building-blocks.png',
+    category: '64c2342de32f4a51b19b9253',
+    isFeatured: true
+  },
+  {
+    _id: ObjectId("64c23601e32f4a51b19b9263"),
+    name: 'Laptop Pro',
+    company: '64c23350e32f4a51b19b9231',
+    price: 1299,
+    colors: [ '#333333', '#cccccc', '#00ff00' ],
+    image: '/images/product-laptop.png',
+    category: '64c2342de32f4a51b19b924e',
+    isFeatured: true
+  },
+  {
+    _id: ObjectId("64c23601e32f4a51b19b926a"),
+    name: 'Car Jump Starter',
+    company: '64c23350e32f4a51b19b9238',
+    price: 89,
+    colors: [ '#000000', '#999999', '#00ff00' ],
+    image: '/images/product-jump-starter.png',
+    category: '64c2342de32f4a51b19b924f',
+    isFeatured: false
+  },
+  {
+    _id: ObjectId("64c23601e32f4a51b19b926b"),
+    name: 'Cookware Set',
+    company: '64c23350e32f4a51b19b9239',
+    price: 149,
+    colors: [ '#ffffff', '#ffcc00', '#cc9900' ],
+    image: '/images/product-cookware.png',
+    category: '64c2342de32f4a51b19b924f',
+    isFeatured: false
+  },
+  {
+    _id: ObjectId("64c23601e32f4a51b19b9265"),
+    name: 'Kitchen Blender',
+    company: '64c23350e32f4a51b19b9233',
+    price: 89,
+    colors: [ '#ffffff', '#ff9900', '#990000' ],
+    image: '/images/product-blender.png',
+    category: '64c2342de32f4a51b19b924f',
+    isFeatured: true
+  },
+  {
+    _id: ObjectId("64c23601e32f4a51b19b9264"),
+    name: 'Smart Watch',
+    company: '64c23350e32f4a51b19b9232',
+    price: 249,
+    colors: [ '#000000', '#ff0000', '#00ff00' ],
+    image: '/images/product-smartwatch.png',
+    category: '64c2342de32f4a51b19b924e',
+    isFeatured: false
+  },
+
+  {
+    _id: ObjectId("64c23601e32f4a51b19b926c"),
+    name: 'Designer Handbag',
+    company: '64c23350e32f4a51b19b923a',
+    price: 349,
+    colors: [ '#000000', '#cc6600', '#663300' ],
+    image: '/images/product-handbag.png',
+    category: '64c2342de32f4a51b19b9250',
+    isFeatured: true
+  },
+
+  
+   <!-- **************************count*************************************** -->
+
+
+  Type "it" for more
+  shop> db.products.find({'price':{$ne:699}}).count()
+  10342
+  shop>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
