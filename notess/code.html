@@ -312,6 +312,192 @@ shop> db.products.find({'price':{$gt:0}, 'name':'Diamond Ring'})
 
 
 
+        <!-- AND METHOD -->
+
+
+
+shop> db.products.find({$and: [{'price':{$gt: 0 }}, {'name': 'Diamond Ring'}] })
+[
+  {
+    _id: ObjectId("64c236a2e32f4a51b19b9281"),
+    name: 'Diamond Ring',
+    company: '64c23350e32f4a51b19b923a',
+    price: 1999,
+    colors: [ '#000000', '#cc6600', '#663300' ],
+    image: '/images/product-diamond-ring.png',
+    category: '64c2342de32f4a51b19b9259',
+    isFeatured: false
+  },
+  {
+    _id: ObjectId("64c23707e32f4a51b19b9296"),
+    name: 'Diamond Ring',
+    company: '64c23350e32f4a51b19b923a',
+    price: 1999,
+    colors: [ '#000000', '#cc6600', '#663300' ],
+    image: '/images/product-diamond-ring.png',
+    category: '64c2342de32f4a51b19b9259',
+    isFeatured: false
+  }
+]
+shop> db.products.find({'price':{$gt:0}, 'name':'Diamond Ring'})
+[
+  {
+    _id: ObjectId("64c236a2e32f4a51b19b9281"),
+    name: 'Diamond Ring',
+    company: '64c23350e32f4a51b19b923a',
+    price: 1999,
+    colors: [ '#000000', '#cc6600', '#663300' ],
+    image: '/images/product-diamond-ring.png',
+    category: '64c2342de32f4a51b19b9259',
+    isFeatured: false
+  },
+  {
+    _id: ObjectId("64c23707e32f4a51b19b9296"),
+    name: 'Diamond Ring',
+    company: '64c23350e32f4a51b19b923a',
+    price: 1999,
+    colors: [ '#000000', '#cc6600', '#663300' ],
+    image: '/images/product-diamond-ring.png',
+    category: '64c2342de32f4a51b19b9259',
+    isFeatured: false
+  }
+]
+                <!-- OR METHOD -->
+
+
+shop> db.products.find({$or: [{'price':{$gt: 2000}}, {'name' : 'Diamond Ring'}]})
+[
+  {
+    _id: ObjectId("64c236a2e32f4a51b19b9281"),
+    name: 'Diamond Ring',
+    company: '64c23350e32f4a51b19b923a',
+    price: 1999,
+    colors: [ '#000000', '#cc6600', '#663300' ],
+    image: '/images/product-diamond-ring.png',
+    category: '64c2342de32f4a51b19b9259',
+    isFeatured: false
+  },
+  {
+    _id: ObjectId("64c23707e32f4a51b19b9296"),
+    name: 'Diamond Ring',
+    company: '64c23350e32f4a51b19b923a',
+    price: 1999,
+    colors: [ '#000000', '#cc6600', '#663300' ],
+    image: '/images/product-diamond-ring.png',
+    category: '64c2342de32f4a51b19b9259',
+    isFeatured: false
+  }
+]
+shop> db.products.find({'price': {$nin: [699,129,69]}}).limit(5).sort({'price':1})
+[
+  {
+    _id: ObjectId("64c23edf9dc1fb2f85601aef"),
+    name: 'Intelligent Fresh Bacon',
+    company: ObjectId("64c23350e32f4a51b19b9247"),
+    price: 1,
+    colors: [ '#4f4b6b' ],
+    image: '/images/product-Handmade.png',
+    category: ObjectId("64c2342de32f4a51b19b9256"),
+    isFeatured: false,
+    __v: 0
+  },
+  {
+    _id: ObjectId("64c23edf9dc1fb2f856019ba"),
+    name: 'Tasty Cotton Shoes',
+    company: ObjectId("64c23350e32f4a51b19b924b"),
+    price: 1,
+    colors: [ '#7d4625' ],
+    image: '/images/product-Luxurious.png',
+    category: ObjectId("64c2342de32f4a51b19b925e"),
+    isFeatured: false,
+    __v: 0
+  },
+  {
+    _id: ObjectId("64c23edf9dc1fb2f85602190"),
+    name: 'Rustic Granite Computer',
+    company: ObjectId("64c23350e32f4a51b19b923d"),
+    price: 1,
+    colors: [ '#643d0a' ],
+    image: '/images/product-Handcrafted.png',
+    category: ObjectId("64c2342de32f4a51b19b9258"),
+    isFeatured: false,
+    __v: 0
+  },
+  {
+    _id: ObjectId("64c23edf9dc1fb2f85601b03"),
+    name: 'Bespoke Metal Hat',
+    company: ObjectId("64c23350e32f4a51b19b923d"),
+    price: 1,
+    colors: [ '#5f295f' ],
+    image: '/images/product-Unbranded.png',
+    category: ObjectId("64c2342de32f4a51b19b9261"),
+    isFeatured: false,
+    __v: 0
+  },
+  {
+    _id: ObjectId("64c23e543e180eb8a268302f"),
+    name: 'Small Fresh Ball',
+    company: ObjectId("64c23350e32f4a51b19b924c"),
+    price: 1,
+    colors: [ '#176e6d' ],
+    image: '/images/product-Oriental.png',
+    category: ObjectId("64c2342de32f4a51b19b9252"),
+    isFeatured: false,
+    __v: 0
+  }
+]
+shop>
+
+
+<!--*********************** count*********************************** -->
+
+
+shop> db.products.find({$nor :[{'price':{$gt: 500}} , {'name':'Diamond Ring'}] }).count()
+5246
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
